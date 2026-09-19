@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Szczegółowy plan logistyczny wyjazdu: loty, opłaty, auto, noclegi, budżet i plan awaryjny.">
+<meta name="theme-color" content="#A8472C">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Grand Circle dla szóstki">
+<meta property="og:description" content="Szczegółowy plan logistyczny wyjazdu: loty, opłaty, auto, noclegi, budżet i plan awaryjny.">
+<meta property="og:locale" content="pl_PL">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏜️</text></svg>">
+<style>
+  :root{ color-scheme: light dark; padding-top: env(safe-area-inset-top,0px); padding-bottom: env(safe-area-inset-bottom,0px); }
+  html,body{ margin:0; }
+  img{ max-width:100%; }
+  [hidden]{ display:none !important; }
+  .sitebar{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    display:flex; gap:6px; flex-wrap:wrap; align-items:center;
+    max-width:820px; margin:0 auto; padding:14px 20px 0; }
+  .sitebar a{ text-decoration:none; padding:6px 12px; border-radius:100px; font-weight:600; }
+  .sitebar a[aria-current]{ background:#A8472C; color:#F6F1E7; }
+  @media (prefers-color-scheme:dark){ .sitebar a[aria-current]{ background:#E08A6C; color:#1A1714; } }
+</style>
+</head>
+<body>
+<div class="sitebar">
+  <a href="index.html">Dla rodziny</a>
+  <a href="mapa.html">Mapa</a>
+  <a href="plan.html" aria-current="page">Szczegóły</a>
+</div>
+<title>Grand Circle dla szóstki</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+  :root{
+    --ink:#2A231C;
+    --ink-soft:#5E5347;
+    --ink-faint:#8B7F70;
+    --ground:#F6F1E7;
+    --panel:#FFFDF8;
+    --line:#E0D5C2;
+    --rust:#A8472C;
+    --rust-soft:#C9755A;
+    --sage:#5F7359;
+    --sky:#2E4A63;
+    --amber:#9A6B12;
+    --amber-bg:#FBF1DA;
+    --rust-bg:#F8E8E2;
+    --sage-bg:#EAEFE6;
+    --shadow:0 1px 2px rgba(42,35,28,.06),0 8px 24px -16px rgba(42,35,28,.25);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ink:#EFE7DA; --ink-soft:#BFB2A0; --ink-faint:#8C8071;
+      --ground:#1A1714; --panel:#232019; --line:#3A342B;
+      --rust:#E08A6C; --rust-soft:#C9755A; --sage:#9DB294; --sky:#8FB3CE; --amber:#D9A94A;
+      --amber-bg:#2E2617; --rust-bg:#31211B; --sage-bg:#1F2620;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#EFE7DA; --ink-soft:#BFB2A0; --ink-faint:#8C8071;
+    --ground:#1A1714; --panel:#232019; --line:#3A342B;
+    --rust:#E08A6C; --rust-soft:#C9755A; --sage:#9DB294; --sky:#8FB3CE; --amber:#D9A94A;
+    --amber-bg:#2E2617; --rust-bg:#31211B; --sage-bg:#1F2620;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.8);
+  }
+
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:"Source Sans 3",system-ui,-apple-system,Segoe UI,sans-serif;
+    font-size:17px;
+    line-height:1.62;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:0 72px;}
+  h1,h2,h3{font-family:Bitter,Georgia,serif;text-wrap:balance;margin:0;}
+  p{margin:0;}
+  a{color:var(--rust);}
+
+  /* masthead */
+  .mast{border-bottom:3px solid var(--ink);padding-block:44px 22px;display:flex;flex-direction:column;gap:14px;}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);font-weight:600;}
+  h1{font-size:clamp(34px,7vw,54px);line-height:1.04;letter-spacing:-.015em;font-weight:700;}
+  .standfirst{font-size:19px;color:var(--ink-soft);max-width:60ch;}
+  .facts{display:flex;flex-wrap:wrap;gap:8px 28px;font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-faint);padding-top:6px;}
+  .facts b{color:var(--ink);font-weight:600;}
+
+  section{padding-block:40px 0;}
+  h2{font-size:26px;letter-spacing:-.01em;padding-bottom:6px;}
+  h2 .num{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--rust);font-weight:600;margin-right:10px;vertical-align:.18em;}
+  .lede{color:var(--ink-soft);max-width:62ch;margin-top:8px;}
+  .stack{display:flex;flex-direction:column;gap:18px;margin-top:22px;}
+
+  /* alerts */
+  .alert{border-left:4px solid var(--rust);background:var(--rust-bg);padding:16px 18px;border-radius:0 6px 6px 0;display:flex;flex-direction:column;gap:7px;}
+  .alert.amber{border-color:var(--amber);background:var(--amber-bg);}
+  .alert.sage{border-color:var(--sage);background:var(--sage-bg);}
+  .alert h3{font-size:17.5px;}
+  .alert p{font-size:15.5px;color:var(--ink-soft);}
+  .alert .tag{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--rust);}
+  .alert.amber .tag{color:var(--amber);} .alert.sage .tag{color:var(--sage);}
+
+  /* itinerary */
+  .days{display:flex;flex-direction:column;gap:0;margin-top:24px;border-top:1px solid var(--line);}
+  .day{display:grid;grid-template-columns:64px 1fr;gap:18px;padding-block:20px;border-bottom:1px solid var(--line);}
+  .daynum{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint);font-weight:600;letter-spacing:.06em;padding-top:3px;}
+  .daynum b{display:block;font-size:26px;color:var(--rust);letter-spacing:-.02em;line-height:1.1;}
+  .daybody{display:flex;flex-direction:column;gap:8px;min-width:0;}
+  .day h3{font-size:18.5px;}
+  .day p{font-size:15.5px;color:var(--ink-soft);}
+  .leg{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-faint);display:flex;flex-wrap:wrap;gap:6px 14px;font-variant-numeric:tabular-nums;}
+  .leg span::before{content:"· ";color:var(--line);}
+  .leg span:first-child::before{content:none;}
+  .sleep{font-size:14px;color:var(--ink-faint);}
+  .sleep b{color:var(--ink);font-weight:600;}
+  .pin{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);font-weight:600;}
+
+  /* tables */
+  .tw{overflow-x:auto;margin-top:22px;border:1px solid var(--line);border-radius:6px;background:var(--panel);}
+  table{border-collapse:collapse;width:100%;font-size:15px;min-width:460px;}
+  th,td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--line);vertical-align:top;}
+  thead th{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;background:var(--ground);}
+  tbody tr:last-child td{border-bottom:none;}
+  td.n{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  tfoot td{font-weight:600;background:var(--ground);border-top:2px solid var(--ink);border-bottom:none;}
+
+  ul{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:7px;color:var(--ink-soft);font-size:15.5px;}
+  li::marker{color:var(--rust-soft);}
+  ul strong{color:var(--ink);}
+
+  .qbox{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:22px;box-shadow:var(--shadow);margin-top:22px;}
+  .qbox ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:12px;font-size:15.5px;color:var(--ink-soft);}
+  .qbox ol::marker,.qbox li::marker{color:var(--rust);font-family:"IBM Plex Mono",monospace;font-weight:600;}
+  .qbox strong{color:var(--ink);}
+
+  footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-faint);}
+  footer a{color:var(--ink-faint);}
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">Research v1 · do zatwierdzenia</div>
+    <h1>Grand Circle dla szóstki</h1>
+    <p class="standfirst">Pętla z Los Angeles przez Zion, Bryce, Antelope Canyon, Monument Valley i Grand Canyon — zaprojektowana pod loty ID90 standby i sześć dużych walizek.</p>
+    <div class="facts">
+      <div><b>6</b> dorosłych</div>
+      <div><b>11</b> dni / 11 nocy</div>
+      <div><b>~2 800 km</b></div>
+      <div>koniec X – 4 XI <b>2026</b></div>
+      <div>WAW ⇄ LAX, <b>LO ID90 SA</b></div>
+    </div>
+  </header>
+
+  <section>
+    <h2><span class="num">01</span>Pięć rzeczy, które zmieniają plan</h2>
+    <p class="lede">Zanim cokolwiek zabookujemy — to są ustalenia z researchu, które realnie przestawiają trasę i budżet. Pierwsze dwa są kosztowne, jeśli się o nich nie wie.</p>
+
+    <div class="stack">
+      <div class="alert">
+        <div class="tag">Loty</div>
+        <h3>SFO odpada. Zostaje LAX.</h3>
+        <p>LOT uruchomił Warszawa–San Francisco 6 maja 2026, ale <strong>wyłącznie jako połączenie sezonu letniego</strong>, 4× w tygodniu. Sezon letni IATA kończy się 24 października 2026 — czyli dokładnie wtedy, kiedy wylatujecie. Powrót 3–4 listopada jest poza sezonem na pewno. SFO traktuję jako niedostępne; plan B przy braku miejsc do LAX to inne lotnisko, nie inne miasto docelowe (patrz sekcja 06).</p>
+      </div>
+
+      <div class="alert">
+        <div class="tag">Pieniądze</div>
+        <h3>Nowa opłata dla obcokrajowców: 100 USD od osoby, od parku</h3>
+        <p>Od 1 stycznia 2026 nierezydenci USA w wieku 16+ płacą <strong>100 USD dopłaty na osobę</strong> w 11 parkach — wśród nich Zion, Bryce Canyon i Grand Canyon, czyli wszystkie trzy nasze. Bez przepustki: 6 osób × 100 USD × 3 parki = <strong>1 800 USD</strong> plus normalne wstępy.</p>
+        <p>Rozwiązanie: <strong>America the Beautiful Non-Resident Annual Pass, 250 USD</strong>. Jedna przepustka obejmuje posiadacza i 3 dodatkowe osoby, więc przy szóstce potrzebujemy <strong>dwóch — 500 USD</strong>. Oszczędność około 1 400 USD. Zwykła przepustka za 80 USD od 2026 nie przysługuje obcokrajowcom. Kupujemy przy pierwszej bramce.</p>
+      </div>
+
+      <div class="alert amber">
+        <div class="tag">Zion</div>
+        <h3>W Zion nie wjedziecie własnym autem</h3>
+        <p>Shuttle w Zion Canyon jeździ do <strong>końca listopada</strong>, a kiedy jeździ, Zion Canyon Scenic Drive jest zamknięta dla prywatnych samochodów. To akurat dobra wiadomość — przy szóstce odpada problem parkowania — ale oznacza, że parkujemy w Springdale albo przy Visitor Center i planujemy dzień pod rozkład busa. Nocleg w Springdale daje dostęp do darmowej linii miejskiej i eliminuje walkę o miejsce parkingowe rano.</p>
+      </div>
+
+      <div class="alert amber">
+        <div class="tag">Czas</div>
+        <h3>Trzy strefy czasowe na jednej trasie — i zmiana czasu w środku wyjazdu</h3>
+        <p>Arizona nie stosuje czasu letniego. <strong>Rezerwat Navajo — owszem.</strong> Do 1 listopada Monument Valley chodzi o godzinę do przodu względem Page i Grand Canyon. Tury do Antelope Canyon rozliczają się <strong>zawsze według czasu Page, Arizona</strong>, mimo że kanion leży na terenie Navajo. 1 listopada w USA kończy się czas letni i wszystko się wyrównuje. Jedna pomyłka tutaj = spóźnienie na turę bez zwrotu.</p>
+      </div>
+
+      <div class="alert sage">
+        <div class="tag">Pogoda</div>
+        <h3>Bryce to zima, nie jesień</h3>
+        <p>Bryce Canyon leży na 2 400–2 700 m. Średnie w listopadzie: <strong>+7 °C w dzień, −5 °C w nocy</strong>, normatywny opad śniegu 25 cm; od października temperatura spada poniżej zera praktycznie co noc. Śnieg w tym terminie nie jest anomalią. Konsekwencje: czapki i rękawiczki w bagażu podręcznym, buty z bieżnikiem na Navajo Loop, a przy wyborze auta — napęd AWD/4×4, nie tylko przestrzeń.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">02</span>Dlaczego pętla, a nie open-jaw</h2>
+    <p class="lede">Powiedziałeś, że open-jaw wchodzi w grę — i faktycznie wypożyczalnie prawie nie liczą sobie za zwrot LAX → Las Vegas. Ale przy staff travel to się nie opłaca.</p>
+    <ul>
+      <li><strong>LOT lata do USA z Los Angeles, nie z Vegas.</strong> Zwrot auta w LAS oznacza dodatkowy lot krajowy LAS → LAX na końcu wyjazdu — kolejny standby, tym razem z terminem powrotu do pracy za plecami.</li>
+      <li><strong>Grand Circle i tak jest pętlą.</strong> Los Angeles → Vegas → Zion → Bryce → Page → Monument Valley → Grand Canyon → Route 66 → Los Angeles domyka się sam. Nie wracamy po własnych śladach ani jednego dnia — ostatni odcinek to Route 66, czyli atrakcja, nie dojazd.</li>
+      <li><strong>Jedna wypożyczalnia, jedno lotnisko, zero opłaty one-way.</strong></li>
+    </ul>
+    <p class="lede" style="margin-top:18px"><strong>Mapa drogowa całej pętli z linkami do Google Maps dla każdego odcinka</strong> jest w osobnym dokumencie: <a href="https://claude.ai/artifact/GGue6J89iEXvBGjS439Qub">Mapa drogowa Grand Circle</a>.</p>
+    <p class="lede" style="margin-top:18px">Open-jaw zostaje jako wariant awaryjny: gdyby na powrót z LAX nie było miejsc, a były z innego portu — wtedy zwracamy auto tam, gdzie trzeba, i jest to decyzja podejmowana w trasie, nie teraz.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">03</span>Trasa dzień po dniu</h2>
+    <p class="lede">Dni numeruję od lądowania, bo przy standby data startu i tak się przesunie. Tempo: średnio 230 km dziennie, po dwie noce w Zion i Grand Canyon, żadnego przejazdu powyżej 6 godzin.</p>
+
+    <div class="days">
+
+      <div class="day">
+        <div class="daynum">dzień<b>1</b></div>
+        <div class="daybody">
+          <h3>Lądowanie w LAX, odbiór auta, sen</h3>
+          <p>LO21 ląduje około 14:35 czasu lokalnego. Odprawa graniczna dla szóstki plus odbiór dużego SUV-a to realnie 2–3 godziny. Dziewięć godzin różnicy czasu — nie planujemy na ten dzień nic poza kolacją. Nocleg blisko lotniska, żeby nie stać w korkach po dobie na nogach.</p>
+          <div class="leg"><span>LAX → nocleg ≈ 15 km</span><span>20 min</span></div>
+          <p class="sleep">Nocleg: <b>El Segundo / Manhattan Beach</b> — motele przy lotnisku, blisko oceanu na poranny spacer i reset zegara</p>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="daynum">dzień<b>2</b></div>
+        <div class="daybody">
+          <h3>Pustynia Mojave i wjazd do Las Vegas</h3>
+          <p>Wyjazd wcześnie — organizmy i tak obudzą się o 4 rano. I-15 przez Mojave. Po drodze <span class="pin">Calico Ghost Town</span> pod Barstow, odrestaurowane miasteczko górnicze z lat 80. XIX wieku, oraz Peggy Sue's Diner w Yermo, jeśli ktoś chce amerykańskiego kiczu w czystej postaci. Wieczorem Strip na piechotę: Bellagio, Fremont Street.</p>
+          <div class="leg"><span>LAX → Las Vegas 435 km</span><span>4 h 30 bez korków</span></div>
+          <p class="sleep">Nocleg: <b>Las Vegas</b> — poza weekendem hotele na Stripie schodzą do cen motelu; uwaga na resort fee doliczaną na miejscu</p>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="daynum">dzień<b>3</b></div>
+        <div class="daybody">
+          <h3>Valley of Fire i przeprawa do Utah</h3>
+          <p><span class="pin">Valley of Fire State Park</span> to najbardziej niedoceniany przystanek na tej trasie — czerwony piaskowiec, Fire Wave, petroglify, godzina od Vegas i za ułamek ceny parku narodowego. Pół dnia w zupełności wystarczy. Potem I-15 na północny wschód, przez Virgin River Gorge, do doliny Zion.</p>
+          <div class="leg"><span>Vegas → Valley of Fire 80 km</span><span>VoF → Springdale ≈ 230 km</span><span>łącznie ok. 4 h jazdy</span></div>
+          <p class="sleep">Nocleg: <b>Springdale</b> (przy bramie parku) lub <b>Hurricane / La Verkin</b> 30 min dalej, wyraźnie taniej</p>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="daynum">dzień<b>4</b></div>
+        <div class="daybody">
+          <h3>Zion — cały dzień na shuttle</h3>
+          <p>Bus dowozi kolejno do Zion Lodge i na koniec doliny. Plan na sześć osób o różnej kondycji: <strong>Riverside Walk</strong> na koniec drogi (płaski, 3 km, wejście w wylot Narrows), <strong>Lower i Middle Emerald Pools</strong>, a dla chętnych <strong>Canyon Overlook</strong> po drugiej stronie tunelu — krótko, stromo, najlepszy widok na dolinę za najmniejszy wysiłek. Angels Landing wymaga losowanego pozwolenia i przy szóstce odpada.</p>
+          <div class="leg"><span>bez przejazdu</span><span>shuttle co 10–15 min</span></div>
+          <p class="sleep">Nocleg: <b>ten sam co poprzedniej nocy</b> — bez przepakowywania</p>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="daynum">dzień<b>5</b></div>
+        <div class="daybody">
+          <h3>Tunel Mt Carmel i hoodoo w Bryce</h3>
+          <p>Wyjazd z Zion drogą 9 przez <strong>Zion–Mt Carmel Tunnel</strong> z 1930 roku — duży SUV może wymagać eskorty ruchu wahadłowego i dopłaty, sprawdzę wymiary dla konkretnego modelu. W Bryce: Sunset Point, Inspiration Point, a jeśli szlaki nie są oblodzone — pętla <strong>Navajo Loop + Queen's Garden</strong>, 5 km zejścia między iglice. Zachód słońca z Sunset Point.</p>
+          <div class="leg"><span>Springdale → Bryce 140 km</span><span>1 h 50</span><span>wysokość 2 400 m</span></div>
+          <p class="sleep">Nocleg: <b>Bryce Canyon City</b> lub <b>Tropic</b> 15 min dalej — taniej i spokojniej</p>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="daynum">dzień<b>6</b></div>
+        <div class="daybody">
+          <h3>Scenic Byway 89 do Page i Horseshoe Bend</h3>
+          <p>Jeśli ktoś wstanie — wschód słońca w Bryce jest lepszy niż zachód. Potem na południe przez Kanab. Po drodze <span class="pin">Toadstool Hoodoos</span>, krótki spacer 30 minut do grzybów skalnych przy samej drodze, i <span class="pin">Big Water</span>. Do Page dojeżdżamy po południu — <strong>Horseshoe Bend w świetle zachodu</strong>, 25 minut spaceru od parkingu.</p>
+          <div class="leg"><span>Bryce → Page 245 km</span><span>2 h 45 + postoje</span></div>
+          <p class="sleep">Nocleg: <b>Page, AZ</b> — dwie noce, baza pod Antelope i Lake Powell</p>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="daynum">dzień<b>7</b></div>
+        <div class="daybody">
+          <h3>Antelope Canyon i Glen Canyon</h3>
+          <p>Tura rano — <strong>zarezerwowana z wyprzedzeniem, to nie jest miejsce, do którego się wchodzi z marszu</strong>. Lower Antelope u Ken's Tours to 80,50 USD od osoby, grupy do 15 ludzi, 50–60 minut, z drabinami; Upper jest łatwiejszy, droższy i słynie ze snopów światła, które o tej porze roku i tak nie występują. Popołudniu Glen Canyon Dam, Lake Powell, opcjonalnie rejs.</p>
+          <div class="leg"><span>bez przejazdu</span><span>tura rozliczana w czasie Page, AZ</span></div>
+          <p class="sleep">Nocleg: <b>Page</b></p>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="daynum">dzień<b>8</b></div>
+        <div class="daybody">
+          <h3>Monument Valley</h3>
+          <p>Przejazd na wschód wzdłuż jeziora, przez Kayenta. <span class="pin">Monument Valley Navajo Tribal Park</span> — wstęp 15 USD od osoby plus 20 USD za auto, <strong>przepustki federalne tu nie działają</strong>. Zimowe godziny: 8:00–17:00, ostatni wjazd na pętlę o 14:30, więc dojeżdżamy przed południem. 27-kilometrowa <strong>Valley Drive</strong> jest nieutwardzona — duży SUV z prześwitem przejedzie bez problemu, ale wolno.</p>
+          <div class="leg"><span>Page → Monument Valley 200 km</span><span>2 h 15</span><span>+1 h strefy czasowej do 1 XI</span></div>
+          <p class="sleep">Nocleg: <b>Monument Valley / Kayenta</b>, albo <b>Mexican Hat</b> po stronie Utah</p>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="daynum">dzień<b>9</b></div>
+        <div class="daybody">
+          <h3>Przez rezerwat do Grand Canyon</h3>
+          <p>Trasa 160 przez Kayenta i Tuba City, potem 89 na południe. Postój w <span class="pin">Cameron Trading Post</span> — stary punkt handlowy z 1916 roku, dobre jedzenie i rękodzieło Navajo bez turystycznej narzutki z parku. Do parku wjeżdżamy <strong>wschodnią bramą Desert View</strong>, nie główną: Desert View Watchtower to pierwsze spojrzenie w kanion i najlepsze możliwe wprowadzenie. Dalej Desert View Drive z przystankami do Grand Canyon Village na zachód słońca.</p>
+          <div class="leg"><span>Monument Valley → South Rim 290 km</span><span>3 h 15</span></div>
+          <p class="sleep">Nocleg: <b>Tusayan</b> (10 min od bramy) — dwie noce</p>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="daynum">dzień<b>10</b></div>
+        <div class="daybody">
+          <h3>Grand Canyon, cały dzień</h3>
+          <p>Rano wschód słońca z Mather lub Yavapai Point. Potem <strong>Hermit Road</strong> — zamknięta dla aut, obsługiwana shuttlem, dziewięć punktów widokowych do Hermits Rest. Dla chętnych zejście <strong>Bright Angel Trail</strong> do pierwszego tunelu albo do 1,5-Mile Resthouse i z powrotem; zasada jest prosta i nienegocjowalna — powrót w górę trwa dwa razy dłużej niż zejście. <span class="pin">North Rim</span> w 2026 działa po pożarze Dragon Bravo tylko w ograniczonym zakresie i bez noclegów, a i tak leży 350 km drogą — zostajemy na południowej krawędzi.</p>
+          <div class="leg"><span>przejazdy lokalne</span><span>Hermit Road shuttlem</span></div>
+          <p class="sleep">Nocleg: <b>Tusayan</b></p>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="daynum">dzień<b>11</b></div>
+        <div class="daybody">
+          <h3>Route 66 na zachód</h3>
+          <p>Zjazd z płaskowyżu do Williams, potem <strong>oryginalny odcinek Route 66</strong>: Seligman, gdzie zaczął się cały kult tej drogi, Hackberry General Store, Kingman. Dla odważnych kierowców objazd przez <span class="pin">Oatman</span> — górskie miasteczko z osłami chodzącymi po ulicy, ale wąski serpentynowy odcinek Sitgreaves Pass przy dużym SUV-ie wymaga uwagi. Nocleg w Kingman albo Laughlin skraca ostatni dzień.</p>
+          <div class="leg"><span>Grand Canyon → Kingman ≈ 310 km</span><span>3 h 30 + postoje</span></div>
+          <p class="sleep">Nocleg: <b>Kingman, AZ</b></p>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="daynum">dzień<b>12</b></div>
+        <div class="daybody">
+          <h3>Powrót do Los Angeles i lot do domu</h3>
+          <p>Ostatni odcinek przez Mojave. Zwrot auta minimum 3 godziny przed odprawą — przy standby warto być na lotnisku wcześniej, żeby wystąpić na listę przy pierwszym możliwym rejsie. Jeśli lot wypada wieczorem, po drodze zmieści się <strong>Santa Monica Pier</strong> i tabliczka „End of the Trail" — symboliczne zamknięcie Route 66 i całej pętli.</p>
+          <div class="leg"><span>Kingman → LAX 570 km</span><span>5 h 30</span></div>
+          <p class="sleep">Zwrot auta w <b>LAX</b> · lot LO22/LO24 do Warszawy</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">04</span>Auto</h2>
+    <p class="lede">Sześciu dorosłych z sześcioma dużymi walizkami to jest ten moment, w którym „siedmioosobowy" nie oznacza „zmieści się".</p>
+    <ul>
+      <li><strong>Minivan odpada.</strong> Chrysler Pacifica ma siedem foteli, ale za trzecim rzędem zostaje niewiele ponad 900 litrów — trzy duże walizki i koniec. Reszta jedzie na kolanach.</li>
+      <li><strong>Suburban / Expedition MAX to minimum.</strong> Suburban ma około 1 110 litrów za trzecim rzędem, co po opiniach użytkowników realnie mieści sześć dużych walizek, ale ciasno. Wypożyczalnie w opisie deklarują zwykle trzy sztuki bagażu przy ośmiu pasażerach — to nie jest błąd, to ostrożność.</li>
+      <li><strong>Bezpieczna opcja: 12-osobowy van</strong> (Ford Transit, Chevy Express). Brzydki, pali więcej, ale problem bagażu znika całkowicie, a przy szóstce każdy ma własny rząd. Warto sprawdzić cenę — bywa niższa niż premium SUV.</li>
+      <li><strong>AWD nieobowiązkowe, ale zalecane</strong> — ze względu na Bryce i ewentualny śnieg, nie ze względu na Valley Drive.</li>
+      <li><strong>Dodatkowi kierowcy:</strong> przy 2 800 km na 11 dni chcecie mieć minimum dwóch. W Kalifornii i Nevadzie małżonek/partner jest zwykle dopisywany bez opłaty, w Arizonie i Utah nie zawsze — to pozycja do sprawdzenia w warunkach konkretnej wypożyczalni.</li>
+      <li><strong>Ubezpieczenie:</strong> polskie karty kredytowe rzadko obejmują duże SUV-y i vany 12-osobowe. Zakładam wykupienie pełnego pakietu na miejscu i tak to wyceniam.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">05</span>Budżet szacunkowy, na osobę</h2>
+    <p class="lede">Bez lotów. Kurs i widełki przy założeniu 11 nocy, dwóch przepustek nierezydenckich i pełnego ubezpieczenia auta.</p>
+    <div class="tw">
+      <table>
+        <thead>
+          <tr><th>Pozycja</th><th>Podstawa</th><th class="n">Na osobę (USD)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Wynajem auta + ubezpieczenie</td><td>duży SUV lub van, 11 dni, ÷6</td><td class="n">290 – 360</td></tr>
+          <tr><td>Paliwo</td><td>≈ 2 800 km, 16 l/100 km, ÷6</td><td class="n">85 – 105</td></tr>
+          <tr><td>Noclegi</td><td>11 nocy × 150–250 USD za grupę, ÷6</td><td class="n">280 – 460</td></tr>
+          <tr><td>Przepustki do parków narodowych</td><td>2 × 250 USD nierezydenckie, ÷6</td><td class="n">83</td></tr>
+          <tr><td>Monument Valley</td><td>15 USD/os. + 20 USD/auto</td><td class="n">18</td></tr>
+          <tr><td>Antelope Canyon</td><td>tura Lower, od osoby</td><td class="n">80 – 110</td></tr>
+          <tr><td>Jedzenie</td><td>11 dni × ok. 55 USD</td><td class="n">600</td></tr>
+          <tr><td>Vegas, wstępy, rezerwa</td><td>bufor na nieprzewidziane</td><td class="n">150</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="2">Razem na osobę, bez lotów</td><td class="n">1 590 – 1 890</td></tr>
+        </tfoot>
+      </table>
+    </div>
+    <p class="lede" style="margin-top:16px">Mieści się w Twoich widełkach przy dolnym wariancie noclegowym i tańszym aucie. Największa dźwignia to auto i noclegi — na jedzeniu i wstępach niewiele da się urwać. Gdyby trzeba było zejść niżej: dwie noce w Vegas zamiast hotelu na Stripie, Tropic zamiast Bryce Canyon City, Hurricane zamiast Springdale. To jakieś 150 USD na głowę.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">06</span>Plan B, czyli szóstka na standby</h2>
+    <p class="lede">To jest najsłabsze ogniwo całego planu i trzeba to nazwać wprost: <strong>sześć miejsc SA na jednym rejsie transatlantyckim w jeden konkretny dzień to scenariusz, który się nie realizuje sam z siebie.</strong> 787-8 ma 252 fotele, 787-9 ma 294. Koniec października to nie szczyt sezonu, co pomaga, ale sześć osób to sześć osób.</p>
+    <ul>
+      <li><strong>Elastyczność startu.</strong> Trasa jest zaprojektowana tak, że żaden element nie jest przypięty do daty — jedyny twardy punkt to tura w Antelope Canyon, którą rezerwujemy dopiero po potwierdzeniu, że lecicie. Zakładamy okno wylotu 22–25 października i wchodzimy na pierwszy rejs, na który jest sześć miejsc.</li>
+      <li><strong>Rozbicie grupy to realna opcja.</strong> Cztery osoby jednym rejsem, dwie następnym — auto i tak odbieramy w LAX, dzień 1 jest dniem odpoczynku. Warto ustalić z grupą zawczasu, że to dopuszczalne, bo w momencie odprawy nie ma czasu na negocjacje.</li>
+      <li><strong>Bufor na powrót.</strong> Powrót planujemy 2–3 dni przed Twoim pierwszym dyżurem w LOT, nie dzień przed. Z LAX są cztery rejsy w tygodniu — jeśli nie wejdziecie w poniedziałek, następna szansa nie jest nazajutrz.</li>
+      <li><strong>Alternatywne porty powrotne.</strong> LOT lata do USA z kilku miast — jeżeli LAX stoi pełny, a jest miejsce z innego portu, wracamy stamtąd i odpowiednio zmieniamy miejsce zwrotu auta. Dlatego wypożyczalnię wybieram taką, która ma oddziały w całym regionie i rozsądne opłaty za zwrot w innym miejscu.</li>
+      <li><strong>Twardy bufor finansowy.</strong> Odłóżcie równowartość sześciu jednokierunkowych biletów komercyjnych z LAX do Europy. Prawdopodobnie nie będą potrzebne. Ale jeśli będą, to w listopadzie, w ostatniej chwili, dla sześciu osób — i wtedy to już nie jest kwota, którą się improwizuje.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">07</span>Czego potrzebuję od Ciebie, żeby to dokończyć</h2>
+    <p class="lede">Powyższe to szkielet oparty na researchu publicznym. Żeby przejść do konkretnych rezerwacji, potrzebuję dostępów i decyzji.</p>
+
+    <div class="qbox">
+      <ol>
+        <li><strong>MyIDTravel</strong> — muszę zobaczyć loady na WAW–LAX w oknie 22–25 października i na powrót 2–5 listopada. Interesuje mnie liczba wolnych miejsc na każdym rejsie, ile osób jest już na liście standby i jaki jest Twój numer priorytetu. Sprawdzę też, czy w interlinie są sensowne alternatywy przez inny port europejski.</li>
+        <li><strong>Booking.com</strong> — zalogowany, żeby widzieć realne ceny dla sześciu osób i filtrować po darmowej anulacji. Sprawdzę, czy taniej wychodzi jeden dom na Airbnb, czy dwa pokoje w motelu; przy szóstce to potrafi być różnica 80 USD na noc.</li>
+        <li><strong>Jeden pokój czy dwa?</strong> Sześć osób to zwykle dwa pokoje z dwoma łóżkami queen. Czy ktoś w grupie ma preferencję co do prywatności, czy jest wam wszystko jedno? To zmienia strategię: apartamenty i domy vs sieciówki.</li>
+        <li><strong>Ilu kierowców?</strong> Kto poza Tobą ma prawo jazdy i jest gotów prowadzić duży amerykański SUV po autostradzie i po nieutwardzonej drodze? Od tego zależy, czy 570 km ostatniego dnia jest komfortowe, czy nie.</li>
+        <li><strong>Kondycja grupy.</strong> Czy wszyscy przejdą 5 km z 150 m podejścia (Navajo Loop w Bryce), czy planuję wszystko jako punkty widokowe plus krótkie spacery? To realnie przestawia dni 4, 5 i 10.</li>
+        <li><strong>Helikopter nad Grand Canyon</strong> — około 250–300 USD od osoby, czyli 1 500–1 800 USD za grupę. Wchodzi w grę, czy wykreślam i nie wracam do tematu?</li>
+        <li><strong>Vegas: jedna noc czy dwie?</strong> W obecnym planie jest jedna, po drodze. Druga noc oznacza urwanie dnia gdzie indziej — najprawdopodobniej drugiej nocy w Page.</li>
+        <li><strong>Data pierwszego dyżuru po powrocie.</strong> To definiuje, ile realnie mamy buforu na powrót, i jest ważniejsze dla bezpieczeństwa planu niż cokolwiek innego w tym dokumencie.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    Źródła: nps.gov (opłaty dla nierezydentów, status North Rim, pogoda w Bryce, shuttle w Zion), pressoffice.lot.com i flightsfrom.com (rozkład LOT), navajonationparks.org i visitmonumentvalley.org (Monument Valley), lowerantelope.com (tury i strefa czasowa). Ceny i godziny sprawdzone we wrześniu 2026 — przed rezerwacją potwierdzam ponownie.
+  </footer>
+
+</div>
+
+</body>
+</html>
