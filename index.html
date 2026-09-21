@@ -130,6 +130,11 @@
   .pack input:checked + span{text-decoration:line-through;color:var(--ink-faint)}
   .pack small{display:block;font-size:13px;color:var(--ink-faint);font-style:italic}
 
+  .shot{margin:2px 0 4px;border-radius:9px;overflow:hidden;border:1px solid var(--line);background:var(--line-soft);}
+  .shot img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:var(--line-soft);}
+  .shot figcaption{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);padding:7px 10px;background:var(--panel);}
+  .shot figcaption a{color:var(--ink-faint);}
+
   .nope{background:var(--rust-bg);border-left:4px solid var(--rust);border-radius:0 8px 8px 0;padding:16px 20px;margin-top:20px}
   .nope h3{font-size:16.5px}
   .nope ul{margin:10px 0 0;padding-left:20px;color:var(--ink-soft);font-size:15.5px;display:flex;flex-direction:column;gap:5px}
@@ -189,9 +194,9 @@
   <header class="hero">
     <div class="kicker">Rodzinny wyjazd · koniec października 2026</div>
     <h1>Jedziemy na Dziki&nbsp;Zachód</h1>
-    <p class="sub">Dwanaście dni, sześć osób, jedno duże auto i pętla przez pięć najpiękniejszych kanionów Ameryki. Tu jest wszystko, co trzeba wiedzieć — i miejsce na Wasze uwagi.</p>
+    <p class="sub">Dwanaście dni, pięć osób, jedno duże auto i pętla przez pięć najpiękniejszych kanionów Ameryki. Tu jest wszystko, co trzeba wiedzieć — i miejsce na Wasze uwagi.</p>
     <div class="chips">
-      <span class="chip"><b>6</b> osób</span>
+      <span class="chip"><b>5</b> osób</span>
       <span class="chip"><b>12</b> dni</span>
       <span class="chip"><b>2 800</b> km</span>
       <span class="chip"><b>5</b> parków narodowych</span>
@@ -227,6 +232,7 @@
       <details class="day">
         <summary><span class="dnum">dzień<b>2</b></span><span class="dttl">Przez pustynię Mojave do Las Vegas<small>435 km · ok. 4,5 h jazdy</small></span><span class="caret">▶</span></summary>
         <div class="dbody">
+          <figure class="shot"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Las_Vegas_Strip_09_2017_4897.jpg/1200px-Las_Vegas_Strip_09_2017_4897.jpg" alt="Las Vegas Strip nocą" loading="lazy" decoding="async"><figcaption>Las Vegas Strip · fot. Mariordo, CC BY-SA 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Las_Vegas_Strip_09_2017_4897.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>
           <p>Pierwszy dzień na drodze. Po drodze <strong>Calico</strong> — odrestaurowane miasteczko górnicze z lat 80. XIX wieku, i klasyczny amerykański diner w Yermo. Wieczorem Las Vegas: spacer po Stripie, fontanny przy Bellagio, stara Fremont Street.</p>
           <p class="tag">Nocleg: Las Vegas</p>
         </div>
@@ -235,6 +241,7 @@
       <details class="day">
         <summary><span class="dnum">dzień<b>3</b></span><span class="dttl">Valley of Fire i wjazd do Utah<small>310 km · ok. 3,5 h jazdy</small></span><span class="caret">▶</span></summary>
         <div class="dbody">
+          <figure class="shot"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Valley_of_fire_State_Park.jpg/1200px-Valley_of_fire_State_Park.jpg" alt="Czerwone formacje piaskowca w Valley of Fire" loading="lazy" decoding="async"><figcaption>Valley of Fire · fot. Clément Bardot, CC BY-SA 3.0 · <a href="https://commons.wikimedia.org/wiki/File:Valley_of_fire_State_Park.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>
           <p><strong>Valley of Fire</strong> to najbardziej niedoceniany przystanek całej trasy — płonąco czerwony piaskowiec, prehistoryczne rysunki na skałach i prawie żadnych turystów. Pół dnia w zupełności starcza. Potem na północ, wąwozem rzeki Virgin, do doliny Zion.</p>
           <p class="tag">Nocleg: Springdale, u bram Zion · 2 noce</p>
         </div>
@@ -243,6 +250,7 @@
       <details class="day">
         <summary><span class="dnum">dzień<b>4</b></span><span class="dttl">Cały dzień w Zion<small>bez przejazdu · poruszamy się autobusem parkowym</small></span><span class="caret">▶</span></summary>
         <div class="dbody">
+          <figure class="shot"><img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Zion_angels_landing_view.jpg" alt="Dolina Zion widziana z góry" loading="lazy" decoding="async"><figcaption>Zion Canyon · fot. Diliff, CC BY-SA 3.0 · <a href="https://commons.wikimedia.org/wiki/File:Zion_angels_landing_view.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>
           <p>Do samej doliny nie wolno wjeżdżać samochodem — kursuje darmowy autobus, który podwozi pod kolejne szlaki. Plan jest tak ułożony, żeby każdy znalazł coś dla siebie: <strong>Riverside Walk</strong> jest zupełnie płaski i prowadzi w głąb wąwozu, <strong>Emerald Pools</strong> to spokojne podejście do wodospadów, a chętni mogą wejść na <strong>Canyon Overlook</strong> — krótko, stromo i najlepszy widok w całym parku.</p>
           <p class="tag">Nocleg: Springdale</p>
         </div>
@@ -251,6 +259,7 @@
       <details class="day">
         <summary><span class="dnum">dzień<b>5</b></span><span class="dttl">Bryce Canyon i las kamiennych iglic<small>140 km · ok. 2 h jazdy · 2 400 m n.p.m.</small></span><span class="caret">▶</span></summary>
         <div class="dbody">
+          <figure class="shot"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Inspiration_Point_Bryce_Canyon_November_2018_panorama.jpg/1200px-Inspiration_Point_Bryce_Canyon_November_2018_panorama.jpg" alt="Pomarańczowe iglice skalne w amfiteatrze Bryce Canyon" loading="lazy" decoding="async"><figcaption>Bryce Canyon, Inspiration Point · fot. King of Hearts, CC BY-SA 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Inspiration_Point_Bryce_Canyon_November_2018_panorama.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>
           <p>Wyjazd starym tunelem z 1930 roku, wykutym w litej skale. Bryce to nie jest kanion, tylko amfiteatr wypełniony tysiącami pomarańczowych iglic — nie ma drugiego takiego miejsca na świecie. Zachód słońca oglądamy z Sunset Point.</p>
           <p><strong>Uwaga:</strong> to najwyżej położony punkt wyjazdu. W nocy będzie około −5 °C i może spaść śnieg. Ciepła czapka nie jest przesadą.</p>
           <p class="tag">Nocleg: Bryce Canyon</p>
@@ -260,6 +269,7 @@
       <details class="day">
         <summary><span class="dnum">dzień<b>6</b></span><span class="dttl">Droga do Page i Horseshoe Bend<small>245 km · ok. 3 h jazdy z postojami</small></span><span class="caret">▶</span></summary>
         <div class="dbody">
+          <figure class="shot"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Grand_Canyon_Horseshoe_Bend.jpg/1200px-Grand_Canyon_Horseshoe_Bend.jpg" alt="Zakole rzeki Kolorado w kształcie podkowy" loading="lazy" decoding="async"><figcaption>Horseshoe Bend · fot. Thomas Wolf, CC BY-SA 3.0 · <a href="https://commons.wikimedia.org/wiki/File:Grand_Canyon_Horseshoe_Bend.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>
           <p>Zjazd na południe przez Kanab. Po drodze <strong>Toadstool Hoodoos</strong> — pół godziny spaceru do skalnych grzybów tuż przy drodze. Pod wieczór docieramy nad <strong>Horseshoe Bend</strong>: rzeka Kolorado zakręca tam o 270 stopni w kanionie głębokim na 300 metrów. Dwadzieścia minut spaceru od parkingu i widok, który wszyscy znacie ze zdjęć.</p>
           <p class="tag">Nocleg: Page, Arizona · 2 noce</p>
         </div>
@@ -268,6 +278,7 @@
       <details class="day">
         <summary><span class="dnum">dzień<b>7</b></span><span class="dttl">Dolina Antylopy<small>bez przejazdu · wycieczka z przewodnikiem Navajo</small></span><span class="caret">▶</span></summary>
         <div class="dbody">
+          <figure class="shot"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/USA_Antelope-Canyon.jpg/900px-USA_Antelope-Canyon.jpg" alt="Faliste ściany wąskiego kanionu szczelinowego" loading="lazy" decoding="async"><figcaption>Antelope Canyon · fot. Lucas Löffler, domena publiczna · <a href="https://commons.wikimedia.org/wiki/File:USA_Antelope-Canyon.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>
           <p>Cel numer jeden całego wyjazdu. <strong>Antelope Canyon</strong> to szczelina wyżłobiona w piaskowcu przez wodę — miejscami na szerokość ramion, z falującymi ścianami w kolorze miodu i ognia. Wchodzi się wyłącznie z przewodnikiem z plemienia Navajo, w małej grupie, na godzinę. Bilety trzeba mieć kupione z góry.</p>
           <p>Po południu tama Glen Canyon i jezioro Powell.</p>
           <p class="tag">Nocleg: Page</p>
@@ -277,6 +288,7 @@
       <details class="day">
         <summary><span class="dnum">dzień<b>8</b></span><span class="dttl">Monument Valley<small>200 km · ok. 2,5 h jazdy</small></span><span class="caret">▶</span></summary>
         <div class="dbody">
+          <figure class="shot"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Monument_Valley%2C_Utah%2C_USA_%2823611451292%29.jpg/1200px-Monument_Valley%2C_Utah%2C_USA_%2823611451292%29.jpg" alt="Czerwone stołowe góry na pustyni" loading="lazy" decoding="async"><figcaption>Monument Valley · fot. Domenico Convertini, CC BY-SA 2.0 · <a href="https://commons.wikimedia.org/wiki/File:Monument_Valley,_Utah,_USA_(23611451292).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>
           <p>Czerwone stołowe góry wyrastające prosto z płaskiej pustyni — krajobraz, w którym nakręcono połowę westernów świata. Teren należy do narodu Navajo i rządzi się własnymi zasadami; jeździmy nieutwardzoną <strong>Valley Drive</strong> naszym samochodem, powoli, z otwartymi oknami.</p>
           <p class="tag">Nocleg: Monument Valley / Kayenta</p>
         </div>
@@ -285,6 +297,7 @@
       <details class="day">
         <summary><span class="dnum">dzień<b>9</b></span><span class="dttl">Pierwsze spojrzenie w Wielki Kanion<small>290 km · ok. 3,5 h jazdy</small></span><span class="caret">▶</span></summary>
         <div class="dbody">
+          <figure class="shot"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Canyon_River_Tree_%28165872763%29.jpeg/1200px-Canyon_River_Tree_%28165872763%29.jpeg" alt="Wielki Kanion z rzeką Kolorado w dole" loading="lazy" decoding="async"><figcaption>Grand Canyon · fot. Lennart Sikkema, CC BY 3.0 · <a href="https://commons.wikimedia.org/wiki/File:Canyon_River_Tree_(165872763).jpeg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>
           <p>Jedziemy przez rezerwat, z postojem w <strong>Cameron Trading Post</strong> — punkt handlowy z 1916 roku, dobre jedzenie i rękodzieło Navajo bez turystycznej narzutki. Do parku wjeżdżamy bramą wschodnią, żeby pierwszy raz zobaczyć kanion z <strong>Desert View Watchtower</strong>. Nie ma lepszego wprowadzenia.</p>
           <p class="tag">Nocleg: Tusayan, przy bramie parku · 2 noce</p>
         </div>
@@ -301,6 +314,7 @@
       <details class="day">
         <summary><span class="dnum">dzień<b>11</b></span><span class="dttl">Route 66 na zachód<small>310 km · ok. 4 h jazdy z postojami</small></span><span class="caret">▶</span></summary>
         <div class="dbody">
+          <figure class="shot"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/SeligmanArizona.JPG/1200px-SeligmanArizona.JPG" alt="Kolorowe szyldy przy drodze Route 66 w Seligman" loading="lazy" decoding="async"><figcaption>Seligman, Route 66 · fot. Vidor, domena publiczna · <a href="https://commons.wikimedia.org/wiki/File:SeligmanArizona.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure>
           <p>Zjeżdżamy z płaskowyżu na oryginalny odcinek <strong>Route 66</strong>: Seligman, gdzie zaczął się cały kult tej drogi i skąd wzięła się animacja „Auta", potem stary sklep w Hackberry i Kingman. Neony, stacje z lat pięćdziesiątych, cadillaki przed motelami.</p>
           <p class="tag">Nocleg: Kingman, Arizona</p>
         </div>
@@ -498,7 +512,7 @@
     <div class="nope">
       <h3>Czego lepiej nie brać</h3>
       <ul>
-        <li><strong>Więcej niż jednej dużej walizki na osobę.</strong> Bagażnik jest policzony co do sztuki — szósta walizka wchodzi dokładnie na styk.</li>
+        <li><strong>Więcej niż jednej dużej walizki na osobę.</strong> Bagażnik jest policzony co do sztuki — przy pięciu osobach jest zapas, ale nie na drugą walizkę każdego.</li>
         <li><strong>Suszarki i żelazka.</strong> Są w każdym motelu.</li>
         <li><strong>Ubrań na każdy dzień osobno.</strong> W Page mamy dwie noce i pralnię — wystarczy na pięć dni i jedno pranie w połowie trasy.</li>
       </ul>
@@ -507,22 +521,22 @@
 
   <section id="budzet">
     <h2>Ile to kosztuje</h2>
-    <p class="lede">Poniżej wszystko poza lotami — auto, noclegi, wstępy, jedzenie i paliwo, podzielone przez sześć osób. Kwoty w dolarach, widełki zależą od tego, jak drogie hotele wybierzemy.</p>
+    <p class="lede">Poniżej wszystko poza lotami — auto, noclegi, wstępy, jedzenie i paliwo, podzielone przez pięć osób. Kwoty w dolarach, widełki zależą od tego, jak drogie hotele wybierzemy.</p>
 
     <div class="tw">
       <table>
         <thead><tr><th>Na co</th><th class="n">USD na osobę</th></tr></thead>
         <tbody>
-          <tr><td>Wynajem auta i ubezpieczenie<small>duży SUV lub van na 11 dni, dzielone na sześć</small></td><td class="n">290 – 360</td></tr>
-          <tr><td>Noclegi<small>11 nocy, dwa pokoje albo apartament</small></td><td class="n">280 – 460</td></tr>
+          <tr><td>Wynajem auta i ubezpieczenie<small>duży SUV na 11 dni, dzielone na pięć</small></td><td class="n">320 – 400</td></tr>
+          <tr><td>Noclegi<small>11 nocy, dwa pokoje albo apartament</small></td><td class="n">330 – 550</td></tr>
           <tr><td>Jedzenie<small>ok. 55 USD dziennie — śniadania w motelu, obiad w drodze</small></td><td class="n">600</td></tr>
-          <tr><td>Paliwo<small>2 800 km, duży samochód</small></td><td class="n">85 – 105</td></tr>
-          <tr><td>Wstępy do parków narodowych<small>dwie roczne przepustki na całą grupę</small></td><td class="n">83</td></tr>
+          <tr><td>Paliwo<small>2 800 km, duży samochód</small></td><td class="n">100 – 125</td></tr>
+          <tr><td>Wstępy do parków narodowych<small>dwie roczne przepustki na całą grupę</small></td><td class="n">100</td></tr>
           <tr><td>Antelope Canyon<small>wycieczka z przewodnikiem Navajo</small></td><td class="n">80 – 110</td></tr>
-          <tr><td>Monument Valley<small>osobny bilet — to teren Navajo, nie park narodowy</small></td><td class="n">18</td></tr>
+          <tr><td>Monument Valley<small>osobny bilet — to teren Navajo, nie park narodowy</small></td><td class="n">19</td></tr>
           <tr><td>Vegas, drobne atrakcje, rezerwa</td><td class="n">150</td></tr>
         </tbody>
-        <tfoot><tr><td>Razem, bez lotów</td><td class="n">1 590 – 1 890</td></tr></tfoot>
+        <tfoot><tr><td>Razem, bez lotów</td><td class="n">1 700 – 2 050</td></tr></tfoot>
       </table>
     </div>
     <p class="lede" style="margin-top:16px">Do tego dochodzą bilety lotnicze i drobne wydatki własne — pamiątki, kawa, napiwki. Warto mieć przy sobie zapas na nieprzewidziane; w Stanach wszystko potrafi kosztować więcej, niż wygląda na cenniku, bo podatek doliczają dopiero przy kasie.</p>
@@ -597,7 +611,7 @@
   </section>
 
   <footer>
-    Plan przygotowany we wrześniu 2026. Trasa i dystanse na podstawie danych OpenStreetMap, ceny wstępów i godziny otwarcia ze stron parków narodowych — przed wyjazdem sprawdzimy je jeszcze raz. Rezerwacje hoteli robimy z możliwością bezpłatnego odwołania, więc plan da się jeszcze zmienić.
+    Zdjęcia pochodzą z Wikimedia Commons i są udostępnione na wolnych licencjach — autor i licencja przy każdym z nich. Plan przygotowany we wrześniu 2026. Trasa i dystanse na podstawie danych OpenStreetMap, ceny wstępów i godziny otwarcia ze stron parków narodowych — przed wyjazdem sprawdzimy je jeszcze raz. Rezerwacje hoteli robimy z możliwością bezpłatnego odwołania, więc plan da się jeszcze zmienić.
   </footer>
 
 </div>
