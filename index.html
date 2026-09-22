@@ -28,38 +28,40 @@
 #gate{display:none}
 html.gate-on,html.gate-on body{overflow:hidden}
 html.gate-on #gate{display:flex}
-html.gate-on #jukebox{display:none}
-#gate{position:fixed;inset:0;z-index:100;align-items:center;justify-content:center;overflow:hidden;
+html.gate-on #jukebox,html.gate-on #jb-hint{display:none}
+#gate{position:fixed;inset:0;z-index:100;align-items:center;justify-content:center;overflow-x:hidden;overflow-y:auto;padding:28px 0;
   background:radial-gradient(60vmax 32vmax at 66% 80%,rgba(242,166,90,.55),transparent 70%),
   linear-gradient(180deg,#1C1828 0%,#3E2636 36%,#8E3E2C 68%,#D98A4E 86%,#E9A862 100%);
-  color:#F6F1E7;transition:opacity .6s ease,transform .6s ease}
-#gate.leaving{opacity:0;transform:translateY(-3%)}
+  color:#F6F1E7;transition:opacity .6s ease}
+#gate.leaving{opacity:0}
 #gate::before{content:"";position:absolute;left:0;top:0;width:2px;height:2px;border-radius:50%;background:#FFF6E6;opacity:.85;
   box-shadow:8vw 9vh 0 0 rgba(255,246,230,.7),19vw 21vh 0 0 rgba(255,246,230,.45),31vw 6vh 0 0 rgba(255,246,230,.8),
   44vw 15vh 0 0 rgba(255,246,230,.5),57vw 5vh 0 0 rgba(255,246,230,.65),69vw 18vh 0 0 rgba(255,246,230,.4),
   78vw 8vh 0 0 rgba(255,246,230,.75),88vw 23vh 0 0 rgba(255,246,230,.45),94vw 4vh 0 0 rgba(255,246,230,.6),
   14vw 31vh 0 0 rgba(255,246,230,.3),62vw 29vh 0 0 rgba(255,246,230,.3),83vw 34vh 0 0 rgba(255,246,230,.25)}
-.gate-land{position:absolute;left:0;right:0;bottom:0;width:100%;height:44vh;display:block}
-.gate-inner{position:relative;z-index:2;text-align:center;padding:0 20px;max-width:680px;margin-top:-14vh;
-  animation:gate-in .8s ease both}
-@keyframes gate-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.gate-land{position:fixed;left:0;right:0;bottom:0;width:100%;height:40vh;display:block;pointer-events:none}
+.gate-inner{position:relative;z-index:2;text-align:center;padding:0 20px;max-width:680px;margin:auto;animation:gate-in .8s ease both}
+@keyframes gate-in{from{opacity:0}to{opacity:1}}
 .gate-kicker{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
-  color:rgba(246,241,231,.72);margin:0 0 14px}
-#gate-title{font-family:Bitter,Georgia,serif;font-weight:700;font-size:clamp(40px,8.4vw,80px);line-height:1.02;
-  letter-spacing:-.01em;margin:0 0 34px;text-wrap:balance;text-shadow:0 2px 24px rgba(28,20,17,.35)}
+  color:rgba(246,241,231,.72);margin:0 0 12px}
+#gate-title{font-family:Bitter,Georgia,serif;font-weight:700;font-size:clamp(38px,7.6vw,76px);line-height:1.02;
+  letter-spacing:-.01em;margin:0 0 28px;text-wrap:balance;text-shadow:0 2px 24px rgba(28,20,17,.35)}
 #gate-go{font-family:"Source Sans 3",system-ui,sans-serif;font-weight:600;font-size:19px;color:#7A2E1C;background:#F6F1E7;
-  border:0;border-radius:100px;padding:17px 34px;cursor:pointer;display:inline-flex;align-items:center;gap:12px;
-  box-shadow:0 10px 30px rgba(28,20,17,.35);transition:transform .15s ease,box-shadow .15s ease}
+  border:0;border-radius:100px;padding:16px 34px;cursor:pointer;display:inline-flex;align-items:center;gap:12px;
+  box-shadow:0 10px 30px rgba(28,20,17,.35);transition:transform .15s ease,box-shadow .15s ease,opacity .2s}
 #gate-go:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(28,20,17,.42)}
+#gate-go[data-busy]{opacity:.8;cursor:progress}
 #gate-go:focus-visible,#gate-quiet:focus-visible{outline:3px solid #F6F1E7;outline-offset:4px}
 #gate-go span{font-size:13px}
-#gate-quiet{display:block;margin:18px auto 0;background:none;border:0;cursor:pointer;color:rgba(246,241,231,.78);
+#gate-quiet{display:block;margin:14px auto 0;background:none;border:0;cursor:pointer;color:rgba(246,241,231,.8);
   font-family:"Source Sans 3",system-ui,sans-serif;font-size:15px;text-decoration:underline;text-underline-offset:3px}
-.gate-song{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.08em;
-  color:rgba(246,241,231,.6);margin:30px 0 0}
+#gate-screen{width:min(380px,90vw);aspect-ratio:16/9;min-height:200px;margin:24px auto 0;border-radius:12px;
+  background:rgba(20,14,12,.5);border:1px solid rgba(246,241,231,.22);box-shadow:0 14px 40px rgba(20,14,12,.4)}
+#gate-hint{font-family:"Source Sans 3",system-ui,sans-serif;font-size:15.5px;line-height:1.4;color:#FFE3C2;margin:14px auto 0;max-width:380px}
+.gate-song{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.08em;color:rgba(246,241,231,.62);margin:10px 0 0}
 @media (prefers-reduced-motion:reduce){#gate,.gate-inner,#gate-go{transition:none;animation:none}}
 </style>
-<script>try{if(localStorage.getItem('usa2026-jolene')!=='off'&&!sessionStorage.getItem('usa2026-in'))document.documentElement.classList.add('gate-on');}catch(e){}</script>
+<script>try{localStorage.removeItem('usa2026-jolene');if(!sessionStorage.getItem('usa2026-in'))document.documentElement.classList.add('gate-on');}catch(e){document.documentElement.classList.add('gate-on');}</script>
 <div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
   <svg class="gate-land" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
     <path fill="#5A2822" opacity=".9" d="M0 360V270L90 266L110 238L240 234L262 262L520 268L540 214L600 208L640 214L660 266L900 270L920 246L1010 242L1030 262L1250 266L1268 226L1330 222L1350 250L1440 252V360Z"/>
@@ -70,6 +72,8 @@ html.gate-on #jukebox{display:none}
     <h2 id="gate-title">Jedziemy na Dziki&nbsp;Zach&oacute;d</h2>
     <button id="gate-go" type="button"><span aria-hidden="true">&#9654;</span>Wje&#380;d&#380;amy</button>
     <button id="gate-quiet" type="button">wejd&#378; bez muzyki</button>
+    <div id="gate-screen"></div>
+    <p id="gate-hint" hidden>Ta przegl&#261;darka chce klikni&#281;cia prosto w odtwarzacz &mdash; naci&#347;nij &#9654; w okienku powy&#380;ej.</p>
     <p class="gate-song">&#9834; Dolly Parton &middot; Jolene</p>
   </div>
 </div>
@@ -797,7 +801,18 @@ html.gate-on #jukebox{display:none}
 #jb-toggle:focus-visible{outline:2px solid #1A1714;outline-offset:3px}
 #jb-toggle[aria-pressed="true"]{background:#1A1714;color:#F6F1E7}
 #jb-icon{font-size:10px}
-#jb-frame{position:fixed;right:0;bottom:0;width:1px;height:1px;opacity:.01;border:0;pointer-events:none}
+#jb-frame{position:fixed;right:0;bottom:0;width:1px;height:1px;opacity:.01;border:0;pointer-events:none;z-index:101;border-radius:12px}
+html.yt-gate #jb-frame{opacity:1;pointer-events:auto}
+html.yt-dock #jb-frame{right:16px;bottom:calc(70px + env(safe-area-inset-bottom,0px));width:356px;height:200px;opacity:1;
+  pointer-events:auto;z-index:61;box-shadow:0 14px 40px rgba(26,23,20,.38)}
+#jb-hint{position:fixed;right:16px;bottom:calc(280px + env(safe-area-inset-bottom,0px));z-index:62;width:356px;box-sizing:border-box;
+  display:flex;align-items:center;gap:10px;justify-content:space-between;background:#1A1714;color:#F6F1E7;border-radius:10px;
+  padding:10px 12px;font:600 14px/1.3 "Source Sans 3",system-ui,sans-serif;box-shadow:0 8px 24px rgba(26,23,20,.3)}
+#jb-hint-x{background:none;border:0;color:#F6F1E7;font-size:16px;cursor:pointer;padding:2px 6px;line-height:1}
+@media (max-width:420px){
+  html.yt-dock #jb-frame{right:12px;width:calc(100vw - 24px);height:max(200px,calc((100vw - 24px)*.5625))}
+  #jb-hint{right:12px;width:calc(100vw - 24px);bottom:calc(76px + max(200px,calc((100vw - 24px)*.5625)) + env(safe-area-inset-bottom,0px))}
+}
 @media (prefers-color-scheme:dark){
   #jb-toggle{background:#E08A6C;color:#1A1714}
   #jb-toggle[aria-pressed="true"]{background:#2A2622;color:#F6F1E7}
@@ -808,15 +823,18 @@ html.gate-on #jukebox{display:none}
     <span id="jb-icon" aria-hidden="true">&#9654;</span><span id="jb-label">W&#322;&#261;cz Jolene</span>
   </button>
 </div>
+<div id="jb-hint" hidden><span>Kliknij &#9654; w okienku, &#380;eby pu&#347;ci&#263; Jolene</span><button id="jb-hint-x" type="button" aria-label="Zamknij">&#10005;</button></div>
 <div id="jb-frame"></div>
 <script>
 (function(){
-  var VID='Ixrje2rXLMA', KEY='usa2026-jolene', SKEY='usa2026-in', root=document.documentElement;
-  var box=document.getElementById('jukebox'), btn=document.getElementById('jb-toggle');
-  var icon=document.getElementById('jb-icon'), lab=document.getElementById('jb-label');
-  var gate=document.getElementById('gate'), goBtn=document.getElementById('gate-go'), quiet=document.getElementById('gate-quiet');
-  var player=null, ready=false, wants=true, armed=false, pending=false;
-  try{ if(localStorage.getItem(KEY)==='off') wants=false; }catch(e){}
+  var IDS=['Ixrje2rXLMA','5m71Jbi7NkU','GFPlF6rXnik'], idx=0;
+  var S_IN='usa2026-in', S_T='usa2026-t', S_OFF='usa2026-off', root=document.documentElement;
+  var $=function(id){ return document.getElementById(id); };
+  var box=$('jukebox'), btn=$('jb-toggle'), icon=$('jb-icon'), lab=$('jb-label');
+  var gate=$('gate'), goBtn=$('gate-go'), quiet=$('gate-quiet'), screen=$('gate-screen'), gHint=$('gate-hint');
+  var hint=$('jb-hint'), hintX=$('jb-hint-x');
+  var player=null, ready=false, want=false, watchT=null, armed=false;
+  function ss(k,v){ try{ if(v===undefined) return sessionStorage.getItem(k); if(v===null) sessionStorage.removeItem(k); else sessionStorage.setItem(k,String(v)); }catch(e){ return null; } }
   box.hidden=false;
   function gateOpen(){ return root.classList.contains('gate-on'); }
   if(gateOpen()){ try{ goBtn.focus({preventScroll:true}); }catch(e){} }
@@ -826,66 +844,103 @@ html.gate-on #jukebox{display:none}
     lab.textContent = on?'Jolene leci':'Włącz Jolene';
   }
   paint(false);
-  function tryPlay(){
-    if(!ready){ pending=true; return; }
-    try{ player.unMute(); player.setVolume(45); player.playVideo(); }catch(e){}
+  function place(){
+    var f=$('jb-frame'); if(!f) return;
+    if(root.classList.contains('yt-gate')){
+      var r=screen.getBoundingClientRect();
+      f.style.left=r.left+'px'; f.style.top=r.top+'px'; f.style.width=r.width+'px'; f.style.height=r.height+'px';
+      f.style.right='auto'; f.style.bottom='auto';
+    } else { f.style.left=f.style.top=f.style.width=f.style.height=f.style.right=f.style.bottom=''; }
   }
+  function mode(m){ root.classList.remove('yt-gate','yt-dock'); if(m) root.classList.add('yt-'+m); place(); }
+  window.addEventListener('resize',place);
+  gate.addEventListener('scroll',place,{passive:true});
+  if(window.ResizeObserver){ try{ new ResizeObserver(place).observe(gate.querySelector('.gate-inner')); }catch(e){} }
+  if(document.fonts&&document.fonts.ready){ document.fonts.ready.then(place); }
   function closeGate(){
     if(!gateOpen()) return;
-    try{ sessionStorage.setItem(SKEY,'1'); }catch(e){}
+    ss(S_IN,'1');
     gate.classList.add('leaving');
     var done=function(){ root.classList.remove('gate-on'); gate.classList.remove('leaving'); };
     if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) done(); else setTimeout(done,620);
+  }
+  function contentPlaying(){ try{ return player.getPlayerState()===1 && player.getCurrentTime()>0.8; }catch(e){ return false; } }
+  function tryPlay(){ if(!ready) return; try{ player.unMute(); player.setVolume(45); player.playVideo(); }catch(e){} }
+  function success(){
+    clearInterval(watchT); watchT=null;
+    gHint.hidden=true; hint.hidden=true; goBtn.removeAttribute('data-busy');
+    if(gateOpen()) closeGate();
+    mode(null);
+  }
+  function watch(){
+    clearInterval(watchT);
+    var n=0, asked=false;
+    watchT=setInterval(function(){
+      n++;
+      if(!want){ clearInterval(watchT); watchT=null; return; }
+      if(contentPlaying()){ success(); return; }
+      if(ready && !asked && n>=6){
+        asked=true;
+        if(gateOpen()){ gHint.hidden=false; goBtn.removeAttribute('data-busy'); }
+        else { mode('dock'); hint.hidden=false; }
+      }
+      if(!ready && n>=20 && gateOpen()){ goBtn.removeAttribute('data-busy'); closeGate(); }
+      if(n>=360){ clearInterval(watchT); watchT=null; }
+    },500);
+  }
+  function start(){ want=true; ss(S_OFF,null); tryPlay(); watch(); }
+  function stop(){
+    want=false; clearInterval(watchT); watchT=null; hint.hidden=true; gHint.hidden=true;
+    try{ player.pauseVideo(); }catch(e){}
+    if(!gateOpen()) mode(null);
   }
   function arm(){
     if(armed) return; armed=true;
     var evs=['pointerdown','keydown','touchstart','wheel'];
     var go=function(ev){
-      if(ev && ev.target && ev.target.closest && ev.target.closest('#jukebox,#gate')) return;
-      if(wants) tryPlay();
+      if(ev && ev.target && ev.target.closest && ev.target.closest('#jukebox,#jb-hint,#gate')) return;
       evs.forEach(function(t){ document.removeEventListener(t,go); });
+      if(!ss(S_OFF)) start();
     };
     evs.forEach(function(t){ document.addEventListener(t,go,{passive:true}); });
   }
-  goBtn.addEventListener('click',function(){
-    wants=true; try{ localStorage.setItem(KEY,'on'); }catch(e){}
-    tryPlay(); closeGate();
+  goBtn.addEventListener('click',function(){ ss(S_IN,'1'); goBtn.setAttribute('data-busy',''); start(); });
+  quiet.addEventListener('click',function(){ ss(S_OFF,'1'); stop(); closeGate(); mode(null); });
+  hintX.addEventListener('click',function(){ ss(S_OFF,'1'); stop(); });
+  btn.addEventListener('click',function(){
+    var playing=false; try{ playing=ready && player.getPlayerState()===1; }catch(e){}
+    if(playing){ ss(S_OFF,'1'); stop(); } else { start(); }
   });
-  quiet.addEventListener('click',function(){
-    wants=false; pending=false; try{ localStorage.setItem(KEY,'off'); }catch(e){}
-    if(ready){ try{ player.pauseVideo(); }catch(e){} }
-    closeGate();
-  });
+  window.addEventListener('pagehide',function(){ try{ if(ready) ss(S_T, Math.floor(player.getCurrentTime())); }catch(e){} });
   window.onYouTubeIframeAPIReady=function(){
     player=new YT.Player('jb-frame',{
-      videoId:VID, host:'https://www.youtube-nocookie.com',
-      playerVars:{playsinline:1,controls:0,rel:0,modestbranding:1,origin:location.origin},
+      videoId:IDS[0], width:'356', height:'200',
+      playerVars:{playsinline:1,controls:1,rel:0,fs:0,iv_load_policy:3,modestbranding:1,origin:location.origin},
       events:{
         onReady:function(){
           ready=true;
-          if(pending){ pending=false; if(wants) tryPlay(); return; }
-          if(!wants) return;
-          tryPlay();
-          setTimeout(function(){
-            try{ var s=player.getPlayerState(); if(s===1||s===3) closeGate(); }catch(e){}
-          },1500);
-          if(!gateOpen()) arm();
+          mode(gateOpen()?'gate':null);
+          var t=parseFloat(ss(S_T)||'0');
+          if(t>2){ try{ player.cueVideoById({videoId:IDS[idx], startSeconds:t}); }catch(e){} }
+          if(want) tryPlay();
+          else if(!gateOpen() && !ss(S_OFF)) arm();
         },
         onStateChange:function(e){
-          if(e.data===YT.PlayerState.PLAYING) paint(true);
-          else if(e.data===YT.PlayerState.PAUSED||e.data===YT.PlayerState.ENDED) paint(false);
+          var s=e.data;
+          if(s===1){
+            paint(true);
+            if(!want){ want=true; ss(S_IN,'1'); ss(S_OFF,null); }
+            if(!watchT) watch();
+          } else if(s===2){ paint(false); }
+          else if(s===0){ if(want){ try{ player.seekTo(0,true); player.playVideo(); }catch(err){} } else paint(false); }
+        },
+        onError:function(){
+          idx++;
+          if(idx<IDS.length){ try{ player.cueVideoById(IDS[idx]); if(want) setTimeout(tryPlay,300); }catch(e){} }
         }
       }
     });
   };
-  btn.addEventListener('click',function(){
-    if(!ready) return;
-    if(player.getPlayerState()===YT.PlayerState.PLAYING){
-      player.pauseVideo(); wants=false; try{ localStorage.setItem(KEY,'off'); }catch(e){}
-    } else {
-      wants=true; try{ localStorage.setItem(KEY,'on'); }catch(e){} tryPlay();
-    }
-  });
   var tag=document.createElement('script');
   tag.src='https://www.youtube.com/iframe_api';
   document.head.appendChild(tag);
