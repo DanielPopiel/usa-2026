@@ -739,5 +739,82 @@
 })();
 </script>
 
+<style>
+#jukebox{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60}
+#jb-toggle{display:inline-flex;align-items:center;gap:9px;font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:12px;letter-spacing:.06em;background:#A8472C;color:#F6F1E7;border:0;border-radius:100px;
+  padding:11px 17px;cursor:pointer;box-shadow:0 6px 22px rgba(26,23,20,.24);line-height:1}
+#jb-toggle:hover{filter:brightness(1.08)}
+#jb-toggle:focus-visible{outline:2px solid #1A1714;outline-offset:3px}
+#jb-toggle[aria-pressed="true"]{background:#1A1714;color:#F6F1E7}
+#jb-icon{font-size:10px}
+#jb-frame{position:fixed;right:0;bottom:0;width:1px;height:1px;opacity:.01;border:0;pointer-events:none}
+@keyframes jb-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+#jukebox.nudge #jb-toggle{animation:jb-pulse 1.7s ease-in-out 3}
+@media (prefers-reduced-motion:reduce){#jukebox.nudge #jb-toggle{animation:none}}
+@media (prefers-color-scheme:dark){
+  #jb-toggle{background:#E08A6C;color:#1A1714}
+  #jb-toggle[aria-pressed="true"]{background:#2A2622;color:#F6F1E7}
+}
+</style>
+<div id="jukebox" hidden>
+  <button id="jb-toggle" type="button" aria-pressed="false" title="Dolly Parton — Jolene">
+    <span id="jb-icon" aria-hidden="true">&#9654;</span><span id="jb-label">W&#322;&#261;cz Jolene</span>
+  </button>
+</div>
+<div id="jb-frame"></div>
+<script>
+(function(){
+  var VID='Ixrje2rXLMA', KEY='usa2026-jolene';
+  var box=document.getElementById('jukebox'), btn=document.getElementById('jb-toggle');
+  var icon=document.getElementById('jb-icon'), lab=document.getElementById('jb-label');
+  var player=null, ready=false, wants=true, armed=false;
+  try{ if(localStorage.getItem(KEY)==='off') wants=false; }catch(e){}
+  box.hidden=false;
+  function paint(on){
+    btn.setAttribute('aria-pressed', on?'true':'false');
+    icon.innerHTML = on?'&#10074;&#10074;':'&#9654;';
+    lab.textContent = on?'Jolene leci':'Włącz Jolene';
+  }
+  paint(false);
+  function tryPlay(){ try{ player.unMute(); player.setVolume(45); player.playVideo(); }catch(e){} }
+  function arm(){
+    if(armed) return; armed=true;
+    box.classList.add('nudge');
+    var evs=['pointerdown','keydown','touchstart','wheel'];
+    var go=function(ev){
+      if(ev && ev.target && ev.target.closest && ev.target.closest('#jukebox')) return;
+      if(wants && ready) tryPlay();
+      evs.forEach(function(t){ document.removeEventListener(t,go); });
+    };
+    evs.forEach(function(t){ document.addEventListener(t,go,{passive:true}); });
+  }
+  window.onYouTubeIframeAPIReady=function(){
+    player=new YT.Player('jb-frame',{
+      videoId:VID, host:'https://www.youtube-nocookie.com',
+      playerVars:{playsinline:1,controls:0,rel:0,modestbranding:1,origin:location.origin},
+      events:{
+        onReady:function(){ ready=true; if(wants){ tryPlay(); arm(); } },
+        onStateChange:function(e){
+          if(e.data===YT.PlayerState.PLAYING){ paint(true); box.classList.remove('nudge'); }
+          else if(e.data===YT.PlayerState.PAUSED||e.data===YT.PlayerState.ENDED){ paint(false); }
+        }
+      }
+    });
+  };
+  btn.addEventListener('click',function(){
+    if(!ready) return;
+    if(player.getPlayerState()===YT.PlayerState.PLAYING){
+      player.pauseVideo(); wants=false; try{localStorage.setItem(KEY,'off');}catch(e){}
+    } else {
+      wants=true; try{localStorage.setItem(KEY,'on');}catch(e){} tryPlay();
+    }
+  });
+  var tag=document.createElement('script');
+  tag.src='https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+})();
+</script>
+
 </body>
 </html>
