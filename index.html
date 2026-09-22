@@ -24,6 +24,55 @@
 </style>
 </head>
 <body>
+<style>
+#gate{display:none}
+html.gate-on,html.gate-on body{overflow:hidden}
+html.gate-on #gate{display:flex}
+html.gate-on #jukebox{display:none}
+#gate{position:fixed;inset:0;z-index:100;align-items:center;justify-content:center;overflow:hidden;
+  background:radial-gradient(60vmax 32vmax at 66% 80%,rgba(242,166,90,.55),transparent 70%),
+  linear-gradient(180deg,#1C1828 0%,#3E2636 36%,#8E3E2C 68%,#D98A4E 86%,#E9A862 100%);
+  color:#F6F1E7;transition:opacity .6s ease,transform .6s ease}
+#gate.leaving{opacity:0;transform:translateY(-3%)}
+#gate::before{content:"";position:absolute;left:0;top:0;width:2px;height:2px;border-radius:50%;background:#FFF6E6;opacity:.85;
+  box-shadow:8vw 9vh 0 0 rgba(255,246,230,.7),19vw 21vh 0 0 rgba(255,246,230,.45),31vw 6vh 0 0 rgba(255,246,230,.8),
+  44vw 15vh 0 0 rgba(255,246,230,.5),57vw 5vh 0 0 rgba(255,246,230,.65),69vw 18vh 0 0 rgba(255,246,230,.4),
+  78vw 8vh 0 0 rgba(255,246,230,.75),88vw 23vh 0 0 rgba(255,246,230,.45),94vw 4vh 0 0 rgba(255,246,230,.6),
+  14vw 31vh 0 0 rgba(255,246,230,.3),62vw 29vh 0 0 rgba(255,246,230,.3),83vw 34vh 0 0 rgba(255,246,230,.25)}
+.gate-land{position:absolute;left:0;right:0;bottom:0;width:100%;height:44vh;display:block}
+.gate-inner{position:relative;z-index:2;text-align:center;padding:0 20px;max-width:680px;margin-top:-14vh;
+  animation:gate-in .8s ease both}
+@keyframes gate-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.gate-kicker{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(246,241,231,.72);margin:0 0 14px}
+#gate-title{font-family:Bitter,Georgia,serif;font-weight:700;font-size:clamp(40px,8.4vw,80px);line-height:1.02;
+  letter-spacing:-.01em;margin:0 0 34px;text-wrap:balance;text-shadow:0 2px 24px rgba(28,20,17,.35)}
+#gate-go{font-family:"Source Sans 3",system-ui,sans-serif;font-weight:600;font-size:19px;color:#7A2E1C;background:#F6F1E7;
+  border:0;border-radius:100px;padding:17px 34px;cursor:pointer;display:inline-flex;align-items:center;gap:12px;
+  box-shadow:0 10px 30px rgba(28,20,17,.35);transition:transform .15s ease,box-shadow .15s ease}
+#gate-go:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(28,20,17,.42)}
+#gate-go:focus-visible,#gate-quiet:focus-visible{outline:3px solid #F6F1E7;outline-offset:4px}
+#gate-go span{font-size:13px}
+#gate-quiet{display:block;margin:18px auto 0;background:none;border:0;cursor:pointer;color:rgba(246,241,231,.78);
+  font-family:"Source Sans 3",system-ui,sans-serif;font-size:15px;text-decoration:underline;text-underline-offset:3px}
+.gate-song{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.08em;
+  color:rgba(246,241,231,.6);margin:30px 0 0}
+@media (prefers-reduced-motion:reduce){#gate,.gate-inner,#gate-go{transition:none;animation:none}}
+</style>
+<script>try{if(localStorage.getItem('usa2026-jolene')!=='off'&&!sessionStorage.getItem('usa2026-in'))document.documentElement.classList.add('gate-on');}catch(e){}</script>
+<div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <svg class="gate-land" viewBox="0 0 1440 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <path fill="#5A2822" opacity=".9" d="M0 360V270L90 266L110 238L240 234L262 262L520 268L540 214L600 208L640 214L660 266L900 270L920 246L1010 242L1030 262L1250 266L1268 226L1330 222L1350 250L1440 252V360Z"/>
+    <path fill="#1C1411" d="M0 360V300L330 296L352 296L360 206L370 176L386 164L404 166L414 186L420 296L700 298L716 298L728 232L850 226L866 240L878 298L1046 302L1054 180L1062 150L1078 136L1096 138L1106 158L1114 300L1440 306V360Z"/>
+  </svg>
+  <div class="gate-inner">
+    <p class="gate-kicker">Rodzinny wyjazd &middot; pa&#378;dziernik 2026</p>
+    <h2 id="gate-title">Jedziemy na Dziki&nbsp;Zach&oacute;d</h2>
+    <button id="gate-go" type="button"><span aria-hidden="true">&#9654;</span>Wje&#380;d&#380;amy</button>
+    <button id="gate-quiet" type="button">wejd&#378; bez muzyki</button>
+    <p class="gate-song">&#9834; Dolly Parton &middot; Jolene</p>
+  </div>
+</div>
 <div class="sitebar">
   <a href="index.html" aria-current="page">Dla rodziny</a>
   <a href="mapa.html">Mapa</a>
@@ -749,55 +798,82 @@
 #jb-toggle[aria-pressed="true"]{background:#1A1714;color:#F6F1E7}
 #jb-icon{font-size:10px}
 #jb-frame{position:fixed;right:0;bottom:0;width:1px;height:1px;opacity:.01;border:0;pointer-events:none}
-@keyframes jb-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
-#jukebox.nudge #jb-toggle{animation:jb-pulse 1.7s ease-in-out 3}
-@media (prefers-reduced-motion:reduce){#jukebox.nudge #jb-toggle{animation:none}}
 @media (prefers-color-scheme:dark){
   #jb-toggle{background:#E08A6C;color:#1A1714}
   #jb-toggle[aria-pressed="true"]{background:#2A2622;color:#F6F1E7}
 }
 </style>
 <div id="jukebox" hidden>
-  <button id="jb-toggle" type="button" aria-pressed="false" title="Dolly Parton — Jolene">
+  <button id="jb-toggle" type="button" aria-pressed="false" title="Dolly Parton, Jolene">
     <span id="jb-icon" aria-hidden="true">&#9654;</span><span id="jb-label">W&#322;&#261;cz Jolene</span>
   </button>
 </div>
 <div id="jb-frame"></div>
 <script>
 (function(){
-  var VID='Ixrje2rXLMA', KEY='usa2026-jolene';
+  var VID='Ixrje2rXLMA', KEY='usa2026-jolene', SKEY='usa2026-in', root=document.documentElement;
   var box=document.getElementById('jukebox'), btn=document.getElementById('jb-toggle');
   var icon=document.getElementById('jb-icon'), lab=document.getElementById('jb-label');
-  var player=null, ready=false, wants=true, armed=false;
+  var gate=document.getElementById('gate'), goBtn=document.getElementById('gate-go'), quiet=document.getElementById('gate-quiet');
+  var player=null, ready=false, wants=true, armed=false, pending=false;
   try{ if(localStorage.getItem(KEY)==='off') wants=false; }catch(e){}
   box.hidden=false;
+  function gateOpen(){ return root.classList.contains('gate-on'); }
+  if(gateOpen()){ try{ goBtn.focus({preventScroll:true}); }catch(e){} }
   function paint(on){
     btn.setAttribute('aria-pressed', on?'true':'false');
     icon.innerHTML = on?'&#10074;&#10074;':'&#9654;';
     lab.textContent = on?'Jolene leci':'Włącz Jolene';
   }
   paint(false);
-  function tryPlay(){ try{ player.unMute(); player.setVolume(45); player.playVideo(); }catch(e){} }
+  function tryPlay(){
+    if(!ready){ pending=true; return; }
+    try{ player.unMute(); player.setVolume(45); player.playVideo(); }catch(e){}
+  }
+  function closeGate(){
+    if(!gateOpen()) return;
+    try{ sessionStorage.setItem(SKEY,'1'); }catch(e){}
+    gate.classList.add('leaving');
+    var done=function(){ root.classList.remove('gate-on'); gate.classList.remove('leaving'); };
+    if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) done(); else setTimeout(done,620);
+  }
   function arm(){
     if(armed) return; armed=true;
-    box.classList.add('nudge');
     var evs=['pointerdown','keydown','touchstart','wheel'];
     var go=function(ev){
-      if(ev && ev.target && ev.target.closest && ev.target.closest('#jukebox')) return;
-      if(wants && ready) tryPlay();
+      if(ev && ev.target && ev.target.closest && ev.target.closest('#jukebox,#gate')) return;
+      if(wants) tryPlay();
       evs.forEach(function(t){ document.removeEventListener(t,go); });
     };
     evs.forEach(function(t){ document.addEventListener(t,go,{passive:true}); });
   }
+  goBtn.addEventListener('click',function(){
+    wants=true; try{ localStorage.setItem(KEY,'on'); }catch(e){}
+    tryPlay(); closeGate();
+  });
+  quiet.addEventListener('click',function(){
+    wants=false; pending=false; try{ localStorage.setItem(KEY,'off'); }catch(e){}
+    if(ready){ try{ player.pauseVideo(); }catch(e){} }
+    closeGate();
+  });
   window.onYouTubeIframeAPIReady=function(){
     player=new YT.Player('jb-frame',{
       videoId:VID, host:'https://www.youtube-nocookie.com',
       playerVars:{playsinline:1,controls:0,rel:0,modestbranding:1,origin:location.origin},
       events:{
-        onReady:function(){ ready=true; if(wants){ tryPlay(); arm(); } },
+        onReady:function(){
+          ready=true;
+          if(pending){ pending=false; if(wants) tryPlay(); return; }
+          if(!wants) return;
+          tryPlay();
+          setTimeout(function(){
+            try{ var s=player.getPlayerState(); if(s===1||s===3) closeGate(); }catch(e){}
+          },1500);
+          if(!gateOpen()) arm();
+        },
         onStateChange:function(e){
-          if(e.data===YT.PlayerState.PLAYING){ paint(true); box.classList.remove('nudge'); }
-          else if(e.data===YT.PlayerState.PAUSED||e.data===YT.PlayerState.ENDED){ paint(false); }
+          if(e.data===YT.PlayerState.PLAYING) paint(true);
+          else if(e.data===YT.PlayerState.PAUSED||e.data===YT.PlayerState.ENDED) paint(false);
         }
       }
     });
@@ -805,9 +881,9 @@
   btn.addEventListener('click',function(){
     if(!ready) return;
     if(player.getPlayerState()===YT.PlayerState.PLAYING){
-      player.pauseVideo(); wants=false; try{localStorage.setItem(KEY,'off');}catch(e){}
+      player.pauseVideo(); wants=false; try{ localStorage.setItem(KEY,'off'); }catch(e){}
     } else {
-      wants=true; try{localStorage.setItem(KEY,'on');}catch(e){} tryPlay();
+      wants=true; try{ localStorage.setItem(KEY,'on'); }catch(e){} tryPlay();
     }
   });
   var tag=document.createElement('script');
